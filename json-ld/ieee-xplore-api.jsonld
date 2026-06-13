@@ -1,0 +1,115 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "hydra": "http://www.w3.org/ns/hydra/core#",
+    "ieee": "https://developer.ieee.org/vocab#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@type": "WebAPI",
+  "@id": "https://developer.ieee.org/",
+  "name": "IEEE Xplore API",
+  "description": "REST API suite providing programmatic access to over 6 million IEEE documents spanning engineering, computer science, electronics, and technology. Supports metadata search, DOI batch lookup, and full-text retrieval for open-access and institutional subscribers.",
+  "url": "https://developer.ieee.org/",
+  "termsOfService": "https://developer.ieee.org/terms_of_use",
+  "provider": {
+    "@type": "Organization",
+    "name": "Institute of Electrical and Electronics Engineers (IEEE)",
+    "url": "https://www.ieee.org/",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "onlinesupport@ieee.org",
+      "contactType": "technical support"
+    }
+  },
+  "documentation": "https://developer.ieee.org/docs",
+  "endpointUrl": "https://ieeexploreapi.ieee.org/api/v1",
+  "availableChannel": [
+    {
+      "@type": "ServiceChannel",
+      "name": "IEEE Xplore Metadata Search API",
+      "description": "Query and retrieve metadata and abstracts for 6M+ IEEE documents with free-text, Boolean, and fielded search support.",
+      "serviceUrl": "https://ieeexploreapi.ieee.org/api/v1/search/articles",
+      "availableLanguage": "en"
+    },
+    {
+      "@type": "ServiceChannel",
+      "name": "IEEE Xplore DOI API",
+      "description": "Batch metadata lookup for up to 25 DOIs per request.",
+      "serviceUrl": "https://ieeexploreapi.ieee.org/api/v1/search/articles",
+      "availableLanguage": "en"
+    },
+    {
+      "@type": "ServiceChannel",
+      "name": "IEEE Xplore Open Access API",
+      "description": "Full-text retrieval for openly licensed IEEE articles.",
+      "serviceUrl": "https://ieeexploreapi.ieee.org/api/v1/search/articles",
+      "availableLanguage": "en"
+    },
+    {
+      "@type": "ServiceChannel",
+      "name": "IEEE Xplore Full-Text Access API",
+      "description": "Full-text retrieval for institutional subscribers requiring an auth token.",
+      "serviceUrl": "https://ieeexploreapi.ieee.org/api/v1/search/articles",
+      "availableLanguage": "en"
+    }
+  ],
+  "category": [
+    "Science And Math",
+    "Scholarly Publishing",
+    "Engineering",
+    "Computer Science",
+    "Standards",
+    "Research",
+    "Academic",
+    "Technology"
+  ],
+  "subjectOf": {
+    "@type": "CreativeWork",
+    "name": "IEEE Xplore API Documentation",
+    "url": "https://developer.ieee.org/docs"
+  },
+  "potentialAction": [
+    {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://ieeexploreapi.ieee.org/api/v1/search/articles?querytext={query_text}&apikey={api_key}",
+        "httpMethod": "GET"
+      },
+      "query-input": [
+        {
+          "@type": "PropertyValueSpecification",
+          "valueName": "query_text",
+          "valueRequired": false
+        },
+        {
+          "@type": "PropertyValueSpecification",
+          "valueName": "api_key",
+          "valueRequired": true
+        }
+      ],
+      "result": {
+        "@type": "ItemList",
+        "description": "List of IEEE document metadata records matching the query"
+      }
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "IEEE Xplore Content Types",
+    "itemListElement": [
+      {"@type": "Offer", "name": "Journal Articles"},
+      {"@type": "Offer", "name": "Conference Papers"},
+      {"@type": "Offer", "name": "IEEE Standards"},
+      {"@type": "Offer", "name": "Books and Book Chapters"},
+      {"@type": "Offer", "name": "Courses"}
+    ]
+  },
+  "offers": {
+    "@type": "Offer",
+    "description": "API key registration required. Institutional subscription needed for full-text access.",
+    "url": "https://developer.ieee.org/member/register"
+  }
+}

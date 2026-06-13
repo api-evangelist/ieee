@@ -1,0 +1,83 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://ieeexploreapi.ieee.org/api/v1/search/articles",
+    "description": "Boolean search for articles about quantum computing in cryptography or security, from 2018 onwards, paginating through results.",
+    "parameters": {
+      "booleantext": "(quantum computing) AND (cryptography OR security OR encryption)",
+      "start_date": "20180101",
+      "max_records": 10,
+      "start_record": 1,
+      "sort_field": "publication_title",
+      "sort_order": "asc",
+      "apikey": "YOUR_API_KEY_HERE"
+    },
+    "curlExample": "curl -G 'https://ieeexploreapi.ieee.org/api/v1/search/articles' --data-urlencode 'booleantext=(quantum computing) AND (cryptography OR security OR encryption)' -d 'start_date=20180101&max_records=10&start_record=1&sort_field=publication_title&sort_order=asc&apikey=YOUR_API_KEY_HERE'"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "total_records": 4293,
+      "total_searched": 6100000,
+      "articles": [
+        {
+          "article_number": "9502467",
+          "title": "Post-Quantum Lattice-Based Cryptography: A Survey of Algorithms and Implementations",
+          "abstract": "The threat of quantum computers to current public-key cryptographic systems has spurred intensive research into post-quantum alternatives. This survey covers lattice-based cryptographic algorithms including CRYSTALS-Kyber and CRYSTALS-Dilithium selected by NIST for standardization, evaluating their security properties and implementation efficiency across hardware and software platforms.",
+          "doi": "10.1109/ACCESS.2021.3094521",
+          "authors": {
+            "authors": [
+              {
+                "full_name": "Bernstein, Daniel J.",
+                "author_order": 1,
+                "affiliation": "University of Illinois Chicago",
+                "author_url": "https://ieeexplore.ieee.org/author/37271049"
+              },
+              {
+                "full_name": "Lange, Tanja",
+                "author_order": 2,
+                "affiliation": "Eindhoven University of Technology",
+                "author_url": "https://ieeexplore.ieee.org/author/29842815"
+              }
+            ]
+          },
+          "publication_title": "IEEE Access",
+          "publication_year": 2021,
+          "publication_date": "July 2021",
+          "volume": "9",
+          "start_page": "106172",
+          "end_page": "106198",
+          "content_type": "Journals",
+          "issn": "2169-3536",
+          "access_type": "Open Access",
+          "is_open_access": true,
+          "publisher": "IEEE",
+          "citing_paper_count": 384,
+          "citing_patent_count": 8,
+          "author_terms": [
+            "post-quantum cryptography",
+            "lattice-based cryptography",
+            "NIST standardization",
+            "quantum threat"
+          ],
+          "ieee_terms": [
+            "Quantum computing",
+            "Cryptography",
+            "Post-quantum cryptography",
+            "Lattice-based cryptography",
+            "Public-key cryptography"
+          ],
+          "pdf_url": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9502467",
+          "html_url": "https://ieeexplore.ieee.org/document/9502467",
+          "abstract_url": "https://ieeexplore.ieee.org/document/9502467",
+          "rank": 1,
+          "insert_date": "20210720"
+        }
+      ]
+    }
+  },
+  "paginationNote": "To retrieve the next page, set start_record=11 (start_record + max_records). Repeat incrementing start_record by max_records until start_record > total_records."
+}

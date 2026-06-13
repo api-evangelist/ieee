@@ -1,0 +1,357 @@
+vocabulary:
+  name: IEEE Xplore API Vocabulary
+  description: >-
+    Terms, parameters, and response fields used by the IEEE Xplore REST API
+    suite covering metadata search, DOI lookup, and full-text access.
+  version: '1.0'
+  source: https://developer.ieee.org/docs
+  terms:
+
+    # Core Identifiers
+    - term: article_number
+      label: Article Number
+      description: IEEE's unique identifier for a specific article or document.
+      type: string
+      example: "9147599"
+
+    - term: doi
+      label: Digital Object Identifier
+      description: >-
+        CrossRef-issued persistent identifier for a document, used globally
+        across scholarly publishing systems.
+      type: string
+      example: "10.1109/TNET.2020.3001245"
+
+    - term: isbn
+      label: ISBN
+      description: International Standard Book Number for books and book chapters.
+      type: string
+
+    - term: issn
+      label: ISSN
+      description: International Standard Serial Number for journals and periodicals.
+      type: string
+
+    - term: publication_number
+      label: Publication Number
+      description: IEEE unique record number for the parent journal, conference, or book.
+      type: string
+
+    - term: is_number
+      label: Issue Number
+      description: IEEE internal journal issue identifier.
+      type: string
+
+    # Search Query Parameters
+    - term: querytext
+      label: Query Text
+      description: >-
+        Free-text search term applied across all configured metadata fields
+        and abstract text. The primary general-purpose search parameter.
+      type: string
+      example: "deep learning image recognition"
+
+    - term: abstract
+      label: Abstract Search
+      description: Restricts text search to the abstract field only.
+      type: string
+
+    - term: affiliation
+      label: Affiliation Search
+      description: Searches within author institutional affiliation text.
+      type: string
+
+    - term: article_title
+      label: Article Title Search
+      description: Searches within the article title field.
+      type: string
+
+    - term: author
+      label: Author Search
+      description: Searches by author name.
+      type: string
+
+    - term: booleantext
+      label: Boolean Text Search
+      description: >-
+        Advanced Boolean search string applied against all metadata fields,
+        abstract, and document text. Supports AND, OR, NOT operators and
+        parenthetical grouping.
+      type: string
+      example: "(machine learning) AND (robotics OR automation)"
+
+    - term: index_terms
+      label: Index Terms Search
+      description: >-
+        Searches within the combined index terms, including Author Keywords,
+        IEEE controlled vocabulary terms, and MeSH Terms.
+      type: string
+
+    - term: publication_title
+      label: Publication Title Search
+      description: Searches within the name of the journal, conference, or book.
+      type: string
+
+    # Filter Parameters
+    - term: content_type
+      label: Content Type Filter
+      description: Limits results to a specific publication category.
+      type: string
+      allowedValues:
+        - Journals
+        - Conference Publications
+        - Standards
+        - Books
+        - Courses
+        - Magazines
+
+    - term: publication_year
+      label: Publication Year Filter
+      description: Filters results to documents published in a specific year.
+      type: integer
+      example: 2023
+
+    - term: start_date
+      label: Start Date Filter
+      description: >-
+        Lower bound for publication date range filter.
+        Format is YYYYMMDD or YYYY.
+      type: string
+      example: "20200101"
+
+    - term: end_date
+      label: End Date Filter
+      description: >-
+        Upper bound for publication date range filter.
+        Format is YYYYMMDD or YYYY.
+      type: string
+      example: "20241231"
+
+    - term: d_au
+      label: Author Facet
+      description: Faceted author search using the Open Author Facet data field.
+      type: string
+
+    - term: d_pubtype
+      label: Publication Type Facet
+      description: Faceted content-type filter using Open Content Type Facet field.
+      type: string
+
+    - term: d_year
+      label: Year Facet
+      description: Faceted publication year filter.
+      type: integer
+
+    # Pagination and Sorting
+    - term: max_records
+      label: Max Records
+      description: >-
+        Number of records to return per request. Default is 25; maximum is 200.
+      type: integer
+      default: 25
+      minimum: 1
+      maximum: 200
+
+    - term: start_record
+      label: Start Record
+      description: >-
+        Sequence number of the first record to return. Used with max_records
+        for pagination through large result sets. Default is 1.
+      type: integer
+      default: 1
+      minimum: 1
+
+    - term: sort_field
+      label: Sort Field
+      description: Field name on which to sort the returned results.
+      type: string
+      allowedValues:
+        - article_number
+        - article_title
+        - publication_title
+
+    - term: sort_order
+      label: Sort Order
+      description: Direction for sorting results.
+      type: string
+      allowedValues:
+        - asc
+        - desc
+      default: asc
+
+    # Response Fields
+    - term: total_records
+      label: Total Records
+      description: Total number of documents matching the submitted query.
+      type: integer
+
+    - term: total_searched
+      label: Total Searched
+      description: Total number of documents in the index that were searched.
+      type: integer
+
+    - term: abstract
+      label: Abstract
+      description: >-
+        Brief summary of a document's content. Available for journal articles,
+        conference papers, standards, books, and courses. Only populated
+        fields are returned.
+      type: string
+
+    - term: abstract_url
+      label: Abstract URL
+      description: IEEE Xplore URL linking to the document's abstract page.
+      type: string
+      format: uri
+
+    - term: access_type
+      label: Access Type
+      description: Categorizes the content's availability for end users.
+      type: string
+      allowedValues:
+        - Open Access
+        - Ephemera
+        - Locked
+        - Plagiarized
+
+    - term: author_terms
+      label: Author Terms
+      description: Keywords provided by the authors describing the document's topics.
+      type: array
+      items:
+        type: string
+
+    - term: authors
+      label: Authors
+      description: >-
+        List of document contributors with full names, ordering, and
+        institutional affiliations.
+      type: object
+
+    - term: citing_paper_count
+      label: Citing Paper Count
+      description: Number of papers in the IEEE Xplore corpus that cite this article.
+      type: integer
+
+    - term: citing_patent_count
+      label: Citing Patent Count
+      description: Number of patents that cite this article.
+      type: integer
+
+    - term: conference_dates
+      label: Conference Dates
+      description: Event date range for conference publications. Format varies.
+      type: string
+
+    - term: conference_location
+      label: Conference Location
+      description: City, state, or country where the conference was held.
+      type: string
+
+    - term: html_url
+      label: HTML URL
+      description: IEEE Xplore URL linking to the full-text HTML version of the document.
+      type: string
+      format: uri
+
+    - term: ieee_terms
+      label: IEEE Terms
+      description: >-
+        Keywords assigned from IEEE's controlled vocabulary, applied to
+        journal articles and conference papers.
+      type: array
+      items:
+        type: string
+
+    - term: insert_date
+      label: Insert Date
+      description: Date the record was last updated in the IEEE Xplore index. Format YYYYMMDD.
+      type: string
+
+    - term: issue
+      label: Issue
+      description: Journal issue number.
+      type: string
+
+    - term: is_open_access
+      label: Is Open Access
+      description: Whether the document is available as open access.
+      type: boolean
+
+    - term: pdf_url
+      label: PDF URL
+      description: IEEE Xplore URL linking to the full-text PDF version.
+      type: string
+      format: uri
+
+    - term: publication_date
+      label: Publication Date
+      description: Document publication date. Format varies.
+      type: string
+
+    - term: publication_title
+      label: Publication Title
+      description: Name of the parent journal, conference proceedings, or book.
+      type: string
+
+    - term: publication_year
+      label: Publication Year
+      description: Four-digit year of publication.
+      type: integer
+
+    - term: publisher
+      label: Publisher
+      description: Name of the publishing organization.
+      type: string
+      example: IEEE
+
+    - term: rank
+      label: Rank
+      description: Relevance ranking position assigned by IEEE's scoring algorithm.
+      type: integer
+
+    - term: standard_number
+      label: Standard Number
+      description: >-
+        Designation number for IEEE standards documents.
+      type: string
+      example: "IEEE 802.11u-2011"
+
+    - term: standard_status
+      label: Standard Status
+      description: Current lifecycle status of an IEEE standard.
+      type: string
+      allowedValues:
+        - Active
+        - Draft
+        - Inactive
+        - Superseded
+
+    - term: start_page
+      label: Start Page
+      description: First page number in the print version of the document.
+      type: string
+
+    - term: end_page
+      label: End Page
+      description: Final page number in the print version of the document.
+      type: string
+
+    - term: title
+      label: Title
+      description: Title of the individual document.
+      type: string
+
+    - term: volume
+      label: Volume
+      description: Volume number for journals and conference publications.
+      type: string
+
+    # Authentication
+    - term: apikey
+      label: API Key
+      description: >-
+        Credential issued by the IEEE Developer Portal after registration.
+        Must be appended to every API request as the apikey query parameter.
+      type: string
+      required: true

@@ -1,0 +1,133 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://ieeexploreapi.ieee.org/api/v1/search/articles",
+    "description": "Search for articles about deep learning in computer vision, limited to journal publications, sorted by publication year descending, returning up to 5 records.",
+    "parameters": {
+      "querytext": "deep learning computer vision",
+      "content_type": "Journals",
+      "start_date": "20200101",
+      "end_date": "20241231",
+      "max_records": 5,
+      "sort_field": "article_number",
+      "sort_order": "desc",
+      "start_record": 1,
+      "apikey": "YOUR_API_KEY_HERE"
+    },
+    "curlExample": "curl -G 'https://ieeexploreapi.ieee.org/api/v1/search/articles' --data-urlencode 'querytext=deep learning computer vision' -d 'content_type=Journals&start_date=20200101&end_date=20241231&max_records=5&sort_order=desc&apikey=YOUR_API_KEY_HERE'"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "total_records": 3847,
+      "total_searched": 6100000,
+      "articles": [
+        {
+          "article_number": "9852847",
+          "title": "Transformer-Based Deep Learning for Real-Time Object Detection in Autonomous Vehicles",
+          "abstract": "This paper proposes a novel transformer-based architecture for real-time object detection applicable to autonomous driving scenarios. Our method achieves state-of-the-art performance on the KITTI and nuScenes benchmarks while maintaining inference speeds suitable for deployment on embedded hardware.",
+          "doi": "10.1109/TIV.2022.3194782",
+          "authors": {
+            "authors": [
+              {
+                "full_name": "Chen, Liwei",
+                "author_order": 1,
+                "affiliation": "Tsinghua University",
+                "author_url": "https://ieeexplore.ieee.org/author/38267491"
+              },
+              {
+                "full_name": "Park, Sungjin",
+                "author_order": 2,
+                "affiliation": "KAIST",
+                "author_url": "https://ieeexplore.ieee.org/author/29847123"
+              }
+            ]
+          },
+          "publication_title": "IEEE Transactions on Intelligent Vehicles",
+          "publication_year": 2022,
+          "publication_date": "June 2022",
+          "volume": "7",
+          "issue": "3",
+          "start_page": "612",
+          "end_page": "625",
+          "content_type": "Journals",
+          "issn": "2379-8858",
+          "access_type": "Locked",
+          "is_open_access": false,
+          "publisher": "IEEE",
+          "citing_paper_count": 142,
+          "citing_patent_count": 3,
+          "author_terms": [
+            "object detection",
+            "transformer architecture",
+            "autonomous driving",
+            "real-time inference"
+          ],
+          "ieee_terms": [
+            "Object detection",
+            "Autonomous vehicles",
+            "Deep learning",
+            "Transformers",
+            "Computer vision"
+          ],
+          "pdf_url": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9852847",
+          "html_url": "https://ieeexplore.ieee.org/document/9852847",
+          "abstract_url": "https://ieeexplore.ieee.org/document/9852847",
+          "rank": 1,
+          "insert_date": "20220715"
+        },
+        {
+          "article_number": "9734651",
+          "title": "Self-Supervised Learning for Medical Image Segmentation via Deep Convolutional Networks",
+          "abstract": "We present a self-supervised pre-training strategy for medical image segmentation that requires minimal labeled data. The approach leverages contrastive learning on unlabeled CT and MRI scans before fine-tuning on small annotated datasets, achieving competitive results against fully supervised baselines.",
+          "doi": "10.1109/TMI.2022.3161804",
+          "authors": {
+            "authors": [
+              {
+                "full_name": "Nguyen, Anh Tuan",
+                "author_order": 1,
+                "affiliation": "Johns Hopkins University",
+                "author_url": "https://ieeexplore.ieee.org/author/37088943"
+              }
+            ]
+          },
+          "publication_title": "IEEE Transactions on Medical Imaging",
+          "publication_year": 2022,
+          "publication_date": "May 2022",
+          "volume": "41",
+          "issue": "5",
+          "start_page": "1203",
+          "end_page": "1218",
+          "content_type": "Journals",
+          "issn": "0278-0062",
+          "access_type": "Open Access",
+          "is_open_access": true,
+          "publisher": "IEEE",
+          "citing_paper_count": 89,
+          "citing_patent_count": 0,
+          "author_terms": [
+            "self-supervised learning",
+            "medical image segmentation",
+            "contrastive learning",
+            "transfer learning"
+          ],
+          "ieee_terms": [
+            "Image segmentation",
+            "Medical imaging",
+            "Deep learning",
+            "Self-supervised learning",
+            "Convolutional neural networks"
+          ],
+          "pdf_url": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9734651",
+          "html_url": "https://ieeexplore.ieee.org/document/9734651",
+          "abstract_url": "https://ieeexplore.ieee.org/document/9734651",
+          "rank": 2,
+          "insert_date": "20220510"
+        }
+      ]
+    }
+  }
+}

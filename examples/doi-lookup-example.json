@@ -1,0 +1,78 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://ieeexploreapi.ieee.org/api/v1/search/articles",
+    "description": "Batch DOI lookup: retrieve metadata for up to 25 DOIs in a single request using the doi parameter.",
+    "parameters": {
+      "doi": "10.1109/TNET.2020.3001245",
+      "apikey": "YOUR_API_KEY_HERE"
+    },
+    "curlExample": "curl -G 'https://ieeexploreapi.ieee.org/api/v1/search/articles' -d 'doi=10.1109/TNET.2020.3001245&apikey=YOUR_API_KEY_HERE'",
+    "notes": "For batch DOI lookups, supply multiple doi parameters or a comma-separated list per IEEE documentation. Maximum 25 DOIs per request."
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "total_records": 1,
+      "total_searched": 6100000,
+      "articles": [
+        {
+          "article_number": "9147599",
+          "title": "Graph Neural Networks for Network Topology Analysis",
+          "abstract": "Network topology inference from traffic measurements is a fundamental problem in network management. This paper proposes a graph neural network framework that learns structural representations from sampled flow data to accurately recover physical network topologies under partial observability.",
+          "doi": "10.1109/TNET.2020.3001245",
+          "authors": {
+            "authors": [
+              {
+                "full_name": "Martinez, Elena",
+                "author_order": 1,
+                "affiliation": "Universidad Politécnica de Madrid",
+                "author_url": "https://ieeexplore.ieee.org/author/38019204"
+              },
+              {
+                "full_name": "Kurose, James F.",
+                "author_order": 2,
+                "affiliation": "University of Massachusetts Amherst",
+                "author_url": "https://ieeexplore.ieee.org/author/37281948"
+              }
+            ]
+          },
+          "publication_title": "IEEE/ACM Transactions on Networking",
+          "publication_year": 2020,
+          "publication_date": "December 2020",
+          "volume": "28",
+          "issue": "6",
+          "start_page": "2471",
+          "end_page": "2484",
+          "content_type": "Journals",
+          "issn": "1063-6692",
+          "access_type": "Locked",
+          "is_open_access": false,
+          "publisher": "IEEE",
+          "citing_paper_count": 217,
+          "citing_patent_count": 1,
+          "author_terms": [
+            "graph neural networks",
+            "network topology",
+            "traffic analysis",
+            "partial observability"
+          ],
+          "ieee_terms": [
+            "Graph neural networks",
+            "Network topology",
+            "Network management",
+            "Machine learning"
+          ],
+          "pdf_url": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9147599",
+          "html_url": "https://ieeexplore.ieee.org/document/9147599",
+          "abstract_url": "https://ieeexplore.ieee.org/document/9147599",
+          "rank": 1,
+          "insert_date": "20201210"
+        }
+      ]
+    }
+  }
+}
