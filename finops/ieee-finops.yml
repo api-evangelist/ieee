@@ -1,0 +1,96 @@
+name: IEEE Xplore FinOps
+description: >-
+  FinOps Framework FOCUS-aligned cost and usage analysis for the IEEE Xplore API platform.
+  IEEE Xplore metadata API access is free upon registration; full-text API access requires
+  an active institutional subscription with list prices ranging from USD 47,000 to over
+  USD 110,000 per year depending on subscription tier.
+specificationVersion: '1.0'
+url: https://innovate.ieee.org/compare-features-chart/
+framework: FinOps Framework 1.0
+focus:
+  schema: FOCUS 1.0
+  description: Financial and operational cost dimensions for IEEE Xplore API consumption aligned with the FinOps FOCUS specification.
+costDimensions:
+  - name: MetadataAPIAccess
+    description: >-
+      Cost of access to the IEEE Xplore Metadata Search API and DOI API. Registration and
+      key issuance are free; there are no per-request charges for metadata and abstract retrieval.
+    billingModel: free-with-registration
+    unit: api-key
+    category: API
+  - name: InstitutionalSubscription
+    description: >-
+      Annual institutional subscription fee required for full-text article access via the API.
+      Subscription options include the IEEE Electronic Library (IEL), All-Society Periodicals
+      Package (ASPP), IEEE Journals Library Plus, IEEE Conference Library Plus, and others.
+      Pricing is typically negotiated and quoted by IEEE sales.
+    billingModel: annual-subscription
+    cadence: annual
+    category: SaaS License
+    examples:
+      - tier: ASPP (All-Society Periodicals Package)
+        listPrice: USD 83,600/yr
+      - tier: POP (Proceedings Order Plan)
+        listPrice: USD 54,450/yr
+      - tier: IEEE Journals Library Plus
+        listPrice: USD 47,000/yr
+      - tier: IEEE Conference Library Plus
+        listPrice: USD 54,000/yr
+      - tier: POP ALL
+        listPrice: USD 110,500/yr
+  - name: DeveloperPortalRegistration
+    description: >-
+      Application registration effort cost (staff time) for submitting API key applications.
+      Keys are issued during business hours (8am–5pm ET, Mon–Fri) with processing time
+      that may vary. No monetary fee; only staff time for application and approval coordination.
+    billingModel: no-cost
+    unit: application
+    category: Operational
+  - name: FullTextAPIUsage
+    description: >-
+      Per-article full-text retrieval counted against institutional subscription holdings.
+      Usage is tracked through the My Account dashboard on the IEEE Developer Portal.
+      Excess usage beyond subscription scope is blocked rather than metered.
+    billingModel: included-in-subscription
+    unit: article
+    category: Usage
+optimization:
+  - name: Use Metadata API for Discovery
+    description: >-
+      The free Metadata API (abstracts, bibliographic data) satisfies most search and
+      discovery use cases. Reserve full-text API calls for confirmed access workflows
+      to avoid unnecessary subscription tier upgrades.
+    action: Audit whether use case requires full text or metadata only before purchasing subscription
+  - name: Batch DOI Lookups
+    description: >-
+      The DOI API accepts up to 25 DOIs per request. Batch lookups instead of single
+      requests to minimize API call volume and network overhead.
+    action: Aggregate DOI resolution requests up to 25 per batch call
+  - name: Paginate Efficiently
+    description: >-
+      Request up to 200 records per call (max_records=200) rather than the default 25.
+      Reduces total API call count for large result set traversal.
+    action: Set max_records=200 for bulk metadata harvesting workflows
+  - name: Right-Size Subscription Tier
+    description: >-
+      Match institutional subscription tier to actual content scope needed. Conference-only
+      use may be satisfied by IEEE Conference Library Plus at USD 54,000 vs. broader packages
+      at USD 83,000+. Validate holdings coverage before committing.
+    action: Audit required journals vs. conference proceedings to select optimal subscription tier
+  - name: Monitor Usage via Developer Portal
+    description: >-
+      Use the My Account usage reporting dashboard in the IEEE Developer Portal to track
+      API consumption per key. Identify underused keys to revoke or consolidate applications.
+    action: Review usage reports monthly and revoke unused API keys
+  - name: Annual Subscription Commitment
+    description: >-
+      IEEE institutional subscriptions are annual contracts. Align renewal cycles with
+      fiscal year and budget planning to avoid mid-year tier upgrades or gaps in access.
+    action: Schedule subscription renewal review 90 days before expiry
+tags:
+  - Scholarly Publishing
+  - Engineering
+  - Academic Library
+  - Standards
+  - Research
+  - Science And Math

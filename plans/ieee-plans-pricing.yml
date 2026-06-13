@@ -1,0 +1,74 @@
+name: IEEE Xplore API Plans
+description: |
+  IEEE Xplore API access is available through the IEEE Developer Portal under an
+  application-based API key model. Registration and metadata API access (abstracts and
+  bibliographic records) are free for approved applications. Full-text article access
+  requires either open-access designation or an active institutional IEEE Xplore
+  subscription. Institutional subscriptions (IEEE Electronic Library, ASPP, etc.) are
+  quoted separately through IEEE sales. Contact onlinesupport@ieee.org for API details.
+specification: api-commons-plans-0.1
+provider:
+  id: ieee
+  name: IEEE Xplore
+  url: https://developer.ieee.org/
+modified: '2026-06-13'
+plans:
+  - id: metadata-api-free
+    name: Metadata API (Free with Registration)
+    pricing:
+      currency: USD
+      model: free
+      amount: 0
+    eligibility:
+      audience: developers, researchers, academics, institutions
+      signup: required
+      authentication: api-key
+      approval: >-
+        Applications reviewed by IEEE during business hours (8am–5pm ET, Mon–Fri).
+        Applicants describe intended use and provide organization website URL.
+        One API key issued per registered application.
+    quotas:
+      maxResultsPerRequest: 200
+      defaultResultsPerRequest: 25
+      maxDoiPerRequest: 25
+      maxQueryWords: 10
+    capabilities:
+      - Metadata and abstract search across 6M+ documents
+      - Boolean and fielded search
+      - DOI batch lookup (up to 25 per request)
+      - JSON and XML response formats
+      - Access to open-access full-text articles
+    notes: |
+      The metadata and open-access APIs are available to approved registered developers
+      at no charge. API key must be appended to every query. Only one API key is issued
+      per application; multiple applications may be registered per organization.
+
+  - id: full-text-institutional
+    name: Full-Text Access (Institutional Subscription Required)
+    pricing:
+      currency: USD
+      model: institutional-subscription
+      amount: contact-sales
+    eligibility:
+      audience: institutions, universities, corporations with IEEE Xplore subscriptions
+      signup: required
+      authentication: api-key + auth-token
+      approval: Requires active IEEE Xplore organizational subscription
+    capabilities:
+      - All Metadata API capabilities
+      - Full-text retrieval for chargeable IEEE articles
+      - Access scoped to institutional subscription holdings
+    notes: |
+      Full-text access via the API mirrors an institution's IEEE Xplore subscription.
+      Subscription options include the IEEE Electronic Library (IEL), All-Society
+      Periodicals Package (ASPP), Conference Library Plus, and others.
+      Contact IEEE sales or onlinesupport@ieee.org for subscription pricing.
+      Example institutional subscription list prices (2026): ASPP USD 83,600/yr,
+      IEEE Journals Library Plus USD 47,000/yr, Conference Library Plus USD 54,000/yr.
+
+links:
+  developerPortal: https://developer.ieee.org/
+  registration: https://developer.ieee.org/member/register
+  gettingStarted: https://developer.ieee.org/getting_started
+  subscriptionOptions: https://innovate.ieee.org/compare-features-chart/
+  support: mailto:onlinesupport@ieee.org

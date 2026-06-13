@@ -1,0 +1,72 @@
+name: IEEE Xplore API Rate Limits
+description: |
+  Documented quota and constraint policies for the IEEE Xplore REST APIs.
+  IEEE does not publish explicit per-minute or per-day request rate limits in its
+  public developer documentation. The primary enforced constraints are per-request
+  result caps and per-query word limits. Clients should implement backoff and
+  avoid hammering the API to prevent key suspension.
+specification: api-commons-rate-limits-0.1
+provider:
+  id: ieee
+  name: IEEE Xplore
+  url: https://developer.ieee.org/
+modified: '2026-06-13'
+policies:
+  - id: metadata-api-constraints
+    appliesTo:
+      - api: ieee-metadata-search
+      - api: ieee-doi
+    enforcement:
+      type: server-enforced
+      mechanism: |
+        IEEE enforces per-request record caps server-side. Clients that exceed
+        usage expectations or breach terms of use may have API keys suspended.
+        No rate-limit response headers are documented; clients should implement
+        conservative retry-with-backoff logic (e.g. HTTP 429 or 503 responses).
+    limits:
+      - dimension: results-per-request
+        max: 200
+        default: 25
+        scope: per-request
+        note: Use the start_record parameter for pagination through larger result sets.
+      - dimension: doi-per-request
+        max: 25
+        scope: per-request
+        note: Applies to the DOI API batch lookup endpoint only.
+      - dimension: query-words
+        max: 10
+        scope: per-query-term
+        note: A single query term (querytext value) may not exceed 10 words.
+    quotas:
+      - dimension: api-keys-per-application
+        max: 1
+        scope: per-registered-application
+        note: One API key is issued per application; register multiple applications if needed.
+    notes: |
+      IEEE does not publish explicit rate limits (requests/minute or requests/day) in
+      its developer documentation as of 2026. Developers should treat the API as a
+      moderate-traffic scholarly resource, implement sensible pacing between requests,
+      and contact onlinesupport@ieee.org for information on higher-volume data access.
+
+  - id: full-text-api-constraints
+    appliesTo:
+      - api: ieee-full-text
+      - api: ieee-open-access
+    enforcement:
+      type: server-enforced
+      mechanism: |
+        Full-text requests require both a valid API key and, for chargeable content,
+        an institutional auth token. Access is scoped to the subscribing institution's
+        licensed holdings. The article_number is a required parameter for all full-text requests.
+    limits:
+      - dimension: required-parameters
+        note: article_number must be provided; requests without it will be rejected.
+    notes: |
+      Full-text retrieval counts against institutional subscription usage. Organizations
+      should monitor consumption through the "My Account" usage reporting dashboard in
+      the IEEE Developer Portal.
+
+contact: onlinesupport@ieee.org
+links:
+  developerPortal: https://developer.ieee.org/
+  documentation: https://developer.ieee.org/docs

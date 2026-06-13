@@ -1,0 +1,197 @@
+aid: ieee
+name: IEEE Xplore
+description: >-
+  IEEE Xplore is the authoritative technical library operated by the Institute of Electrical and
+  Electronics Engineers (IEEE), providing access to over 6 million documents spanning engineering,
+  computer science, electronics, and technology. The IEEE Xplore API suite exposes a REST-based
+  Metadata Search API for querying and retrieving abstracts and metadata across the full corpus,
+  a DOI API for resolving up to 25 DOIs per request, an Open Access API for full-text retrieval
+  of freely available articles, and a Full-Text Access API for institutional subscribers. API
+  access requires key-based registration through the IEEE Developer Portal.
+url: https://developer.ieee.org/
+specificationVersion: '0.19'
+created: '2026-06-13'
+modified: '2026-06-13'
+x-source: manual
+x-type: commercial
+x-category: Science & Math
+x-tier: 2
+x-tier-reason: IEEE Xplore is a major scholarly publisher with a public API requiring key registration; institutional subscription needed for full-text but metadata is broadly accessible.
+tags:
+  - Science And Math
+  - Scholarly Publishing
+  - Engineering
+  - Computer Science
+  - Standards
+  - Research
+  - Academic
+  - Technology
+apis:
+  - name: IEEE Xplore Metadata Search API
+    description: >-
+      REST endpoint for querying and retrieving metadata records and abstracts for more than
+      6 million documents in IEEE Xplore, including journals, conference proceedings, standards,
+      books, and courses. Supports simple text search, Boolean operators (AND, OR, NOT), and
+      fielded searches across article title, author, abstract, affiliation, publication title,
+      DOI, ISBN, ISSN, article number, index terms, and more. Results are returned as JSON
+      (default) or XML with a maximum of 200 records per request and pagination via start_record.
+      API key required in every request via the apikey query parameter.
+    humanURL: https://developer.ieee.org/docs
+    baseURL: https://ieeexploreapi.ieee.org/api/v1/search/articles
+    tags:
+      - Science And Math
+      - Scholarly Publishing
+      - Engineering
+      - Metadata
+      - Search
+    properties:
+      - type: Documentation
+        url: https://developer.ieee.org/docs
+      - type: GettingStarted
+        url: https://developer.ieee.org/getting_started
+      - type: DeveloperPortal
+        url: https://developer.ieee.org/
+      - type: APIReference
+        url: https://developer.ieee.org/docs/read/Searching_the_IEEE_Xplore_Metadata_API
+      - type: SDK
+        url: https://developer.ieee.org/Python3_Software_Development_Kit
+        title: Python 3 SDK
+      - type: SDK
+        url: https://developer.ieee.org/Java_Software_Development_Kit
+        title: Java SDK
+
+  - name: IEEE Xplore DOI API
+    description: >-
+      Batch metadata lookup endpoint that accepts up to 25 DOI (Digital Object Identifier)
+      numbers per request and returns metadata records including abstracts for each resolved
+      document. Useful for enriching reference lists or citation databases. API key required.
+    humanURL: https://developer.ieee.org/docs
+    baseURL: https://ieeexploreapi.ieee.org/api/v1/search/articles
+    tags:
+      - Scholarly Publishing
+      - DOI
+      - Metadata
+    properties:
+      - type: Documentation
+        url: https://developer.ieee.org/docs
+      - type: DeveloperPortal
+        url: https://developer.ieee.org/
+
+  - name: IEEE Xplore Open Access API
+    description: >-
+      Full-text retrieval endpoint for articles designated as IEEE Open Access or chargeable
+      open content. Returns complete article text for documents that are freely available under
+      open-access licensing. Requires an API key and uses the article number as a required
+      parameter to identify the target document.
+    humanURL: https://developer.ieee.org/docs
+    baseURL: https://ieeexploreapi.ieee.org/api/v1/search/articles
+    tags:
+      - Open Access
+      - Full Text
+      - Scholarly Publishing
+    properties:
+      - type: Documentation
+        url: https://developer.ieee.org/docs
+      - type: DeveloperPortal
+        url: https://developer.ieee.org/
+
+  - name: IEEE Xplore Full-Text Access API
+    description: >-
+      Full-text retrieval endpoint for chargeable IEEE articles accessible to institutional
+      subscribers. Returns complete article content for documents covered under an organization's
+      IEEE Xplore subscription. Requires both an API key and an institutional auth token.
+      Article number is a required parameter.
+    humanURL: https://developer.ieee.org/docs
+    baseURL: https://ieeexploreapi.ieee.org/api/v1/search/articles
+    tags:
+      - Full Text
+      - Scholarly Publishing
+      - Subscription
+    properties:
+      - type: Documentation
+        url: https://developer.ieee.org/docs
+      - type: DeveloperPortal
+        url: https://developer.ieee.org/
+
+common:
+  - type: Website
+    url: https://ieeexplore.ieee.org
+  - type: DeveloperPortal
+    url: https://developer.ieee.org/
+  - type: Documentation
+    url: https://developer.ieee.org/docs
+  - type: GettingStarted
+    url: https://developer.ieee.org/getting_started
+  - type: Registration
+    url: https://developer.ieee.org/member/register
+  - type: TermsOfService
+    url: https://developer.ieee.org/terms_of_use
+  - type: PrivacyPolicy
+    url: https://www.ieee.org/security-privacy.html
+  - type: Support
+    url: mailto:onlinesupport@ieee.org
+  - type: SDKs
+    url: https://developer.ieee.org/Python3_Software_Development_Kit
+    title: Python 3 SDK
+  - type: SDKs
+    url: https://developer.ieee.org/Java_Software_Development_Kit
+    title: Java SDK
+  - type: Plans
+    url: plans/ieee-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/ieee-rate-limits.yml
+  - type: FinOps
+    url: finops/ieee-finops.yml
+  - type: Features
+    data:
+      - name: Metadata Search
+        description: Query and retrieve metadata and abstracts for 6M+ IEEE documents including journals, conferences, standards, and books.
+      - name: Boolean Search
+        description: Full AND, OR, NOT Boolean operator support with fielded search across title, author, abstract, affiliation, and more.
+      - name: DOI Batch Lookup
+        description: Resolve up to 25 DOIs per request to retrieve metadata and abstracts in a single call.
+      - name: Open Access Full Text
+        description: Retrieve full article text for openly licensed IEEE publications without institutional subscription.
+      - name: Institutional Full Text
+        description: Full article retrieval for subscribing institutions via auth-token-gated full-text API.
+      - name: JSON and XML Responses
+        description: Default JSON responses with optional XML output format for all API endpoints.
+      - name: Pagination
+        description: Navigate large result sets using start_record parameter with up to 200 results per request.
+      - name: Content Filtering
+        description: Filter results by content_type (Journals, Conferences, Standards, Books, Courses), date range, and other facets.
+      - name: Dynamic Query Tool
+        description: Interactive web-based query builder at developer.ieee.org/io-docs for API exploration with pre-loaded credentials.
+      - name: Multi-Language SDKs
+        description: Official SDKs available in Python 3 and Java for rapid integration.
+  - type: UseCases
+    data:
+      - name: Academic Research Discovery
+        description: Build search interfaces and recommendation engines over IEEE's 6M+ technical documents.
+      - name: Citation Management
+        description: Enrich reference lists and bibliographic databases with IEEE metadata via DOI batch lookup.
+      - name: Institutional Repository Integration
+        description: Sync IEEE metadata into library catalogs, institutional repositories, and research management systems.
+      - name: Standards Compliance Tooling
+        description: Query and surface relevant IEEE standards for compliance documentation and engineering workflows.
+      - name: AI and RAG Applications
+        description: Build retrieval-augmented generation pipelines over IEEE abstracts and metadata for domain-specific AI assistants.
+      - name: Publication Analytics
+        description: Aggregate metadata to analyze publication trends, author networks, and citation patterns across IEEE disciplines.
+      - name: Content Licensing Platforms
+        description: Integrate full-text access APIs into reading platforms for institutional subscribers.
+  - type: Integrations
+    data:
+      - name: DOI Foundation / CrossRef
+        description: IEEE articles carry DOIs resolvable via the CrossRef and doi.org infrastructure.
+      - name: Scopus and Web of Science
+        description: IEEE Xplore metadata is indexed by major abstract and citation databases.
+      - name: Semantic Scholar
+        description: IEEE publications surfaced via Semantic Scholar's open research graph.
+      - name: ORCID
+        description: Author identifiers linked to IEEE contributor profiles.
+      - name: RIS / BibTeX Export
+        description: IEEE Xplore supports standard citation export formats compatible with reference managers.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
