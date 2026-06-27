@@ -53,10 +53,10 @@ apis:
         url: https://developer.ieee.org/
       - type: APIReference
         url: https://developer.ieee.org/docs/read/Searching_the_IEEE_Xplore_Metadata_API
-      - type: SDK
+      - type: SDKs
         url: https://developer.ieee.org/Python3_Software_Development_Kit
         title: Python 3 SDK
-      - type: SDK
+      - type: SDKs
         url: https://developer.ieee.org/Java_Software_Development_Kit
         title: Java SDK
 
