@@ -114,6 +114,10 @@ apis:
         url: https://developer.ieee.org/
 
 common:
+  - type: DomainSecurity
+    url: security/ieee-domain-security.yml
+  - type: Authentication
+    url: authentication/ieee-authentication.yml
   - type: Website
     url: https://ieeexplore.ieee.org
   - type: DeveloperPortal
@@ -192,6 +196,8 @@ common:
         description: Author identifiers linked to IEEE contributor profiles.
       - name: RIS / BibTeX Export
         description: IEEE Xplore supports standard citation export formats compatible with reference managers.
+  - url: https://spectrum.ieee.org/feeds/feed.rss
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

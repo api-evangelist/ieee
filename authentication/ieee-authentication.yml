@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: ApiKeyQuery
+  type: apiKey
+  in: query
+  parameter: apikey
+  description: API key obtained by registering at https://developer.ieee.org/member/register.
+    Must be appended to every request as the apikey query parameter.
+  sources:
+  - openapi/openapi.yml
