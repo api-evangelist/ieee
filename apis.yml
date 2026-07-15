@@ -114,6 +114,8 @@ apis:
         url: https://developer.ieee.org/
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/ieee-agentic-access.yml
   - type: DomainSecurity
     url: security/ieee-domain-security.yml
   - type: Authentication
