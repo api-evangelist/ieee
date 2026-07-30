@@ -1,4 +1,18 @@
 aid: ieee
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ieee.png
 name: IEEE Xplore
 description: >-
   IEEE Xplore is the authoritative technical library operated by the Institute of Electrical and
@@ -27,92 +41,95 @@ tags:
   - Academic
   - Technology
 apis:
-  - name: IEEE Xplore Metadata Search API
-    description: >-
-      REST endpoint for querying and retrieving metadata records and abstracts for more than
-      6 million documents in IEEE Xplore, including journals, conference proceedings, standards,
-      books, and courses. Supports simple text search, Boolean operators (AND, OR, NOT), and
-      fielded searches across article title, author, abstract, affiliation, publication title,
-      DOI, ISBN, ISSN, article number, index terms, and more. Results are returned as JSON
-      (default) or XML with a maximum of 200 records per request and pagination via start_record.
-      API key required in every request via the apikey query parameter.
-    humanURL: https://developer.ieee.org/docs
-    baseURL: https://ieeexploreapi.ieee.org/api/v1/search/articles
-    tags:
-      - Science And Math
-      - Scholarly Publishing
-      - Engineering
-      - Metadata
-      - Search
-    properties:
-      - type: Documentation
-        url: https://developer.ieee.org/docs
-      - type: GettingStarted
-        url: https://developer.ieee.org/getting_started
-      - type: DeveloperPortal
-        url: https://developer.ieee.org/
-      - type: APIReference
-        url: https://developer.ieee.org/docs/read/Searching_the_IEEE_Xplore_Metadata_API
-      - type: SDKs
-        url: https://developer.ieee.org/Python3_Software_Development_Kit
-        title: Python 3 SDK
-      - type: SDKs
-        url: https://developer.ieee.org/Java_Software_Development_Kit
-        title: Java SDK
-
-  - name: IEEE Xplore DOI API
-    description: >-
-      Batch metadata lookup endpoint that accepts up to 25 DOI (Digital Object Identifier)
-      numbers per request and returns metadata records including abstracts for each resolved
-      document. Useful for enriching reference lists or citation databases. API key required.
-    humanURL: https://developer.ieee.org/docs
-    baseURL: https://ieeexploreapi.ieee.org/api/v1/search/articles
-    tags:
-      - Scholarly Publishing
-      - DOI
-      - Metadata
-    properties:
-      - type: Documentation
-        url: https://developer.ieee.org/docs
-      - type: DeveloperPortal
-        url: https://developer.ieee.org/
-
-  - name: IEEE Xplore Open Access API
-    description: >-
-      Full-text retrieval endpoint for articles designated as IEEE Open Access or chargeable
-      open content. Returns complete article text for documents that are freely available under
-      open-access licensing. Requires an API key and uses the article number as a required
-      parameter to identify the target document.
-    humanURL: https://developer.ieee.org/docs
-    baseURL: https://ieeexploreapi.ieee.org/api/v1/search/articles
-    tags:
-      - Open Access
-      - Full Text
-      - Scholarly Publishing
-    properties:
-      - type: Documentation
-        url: https://developer.ieee.org/docs
-      - type: DeveloperPortal
-        url: https://developer.ieee.org/
-
-  - name: IEEE Xplore Full-Text Access API
-    description: >-
-      Full-text retrieval endpoint for chargeable IEEE articles accessible to institutional
-      subscribers. Returns complete article content for documents covered under an organization's
-      IEEE Xplore subscription. Requires both an API key and an institutional auth token.
-      Article number is a required parameter.
-    humanURL: https://developer.ieee.org/docs
-    baseURL: https://ieeexploreapi.ieee.org/api/v1/search/articles
-    tags:
-      - Full Text
-      - Scholarly Publishing
-      - Subscription
-    properties:
-      - type: Documentation
-        url: https://developer.ieee.org/docs
-      - type: DeveloperPortal
-        url: https://developer.ieee.org/
-
+- name: IEEE Xplore Metadata Search API
+  description: >-
+    REST endpoint for querying and retrieving metadata records and abstracts for more than 6 million documents
+    in IEEE Xplore, including journals, conference proceedings, standards, books, and courses. Supports
+    simple text search, Boolean operators (AND, OR, NOT), and fielded searches across article title, author,
+    abstract, affiliation, publication title, DOI, ISBN, ISSN, article number, index terms, and more.
+    Results are returned as JSON (default) or XML with a maximum of 200 records per request and pagination
+    via start_record. API key required in every request via the apikey query parameter.
+  humanURL: https://developer.ieee.org/docs
+  baseURL: https://ieeexploreapi.ieee.org/api/v1/search/articles
+  tags:
+  - Science And Math
+  - Scholarly Publishing
+  - Engineering
+  - Metadata
+  - Search
+  properties:
+  - type: Documentation
+    url: https://developer.ieee.org/docs
+  - type: GettingStarted
+    url: https://developer.ieee.org/getting_started
+  - type: DeveloperPortal
+    url: https://developer.ieee.org/
+  - type: APIReference
+    url: https://developer.ieee.org/docs/read/Searching_the_IEEE_Xplore_Metadata_API
+  - type: SDKs
+    url: https://developer.ieee.org/Python3_Software_Development_Kit
+    title: Python 3 SDK
+  - type: SDKs
+    url: https://developer.ieee.org/Java_Software_Development_Kit
+    title: Java SDK
+- name: IEEE Xplore DOI API
+  description: >-
+    Batch metadata lookup endpoint that accepts up to 25 DOI (Digital Object Identifier) numbers per request
+    and returns metadata records including abstracts for each resolved document. Useful for enriching
+    reference lists or citation databases. API key required.
+  humanURL: https://developer.ieee.org/docs
+  baseURL: https://ieeexploreapi.ieee.org/api/v1/search/articles
+  tags:
+  - Scholarly Publishing
+  - DOI
+  - Metadata
+  properties:
+  - type: Documentation
+    url: https://developer.ieee.org/docs
+  - type: DeveloperPortal
+    url: https://developer.ieee.org/
+- name: IEEE Xplore Open Access API
+  description: >-
+    Full-text retrieval endpoint for articles designated as IEEE Open Access or chargeable open content.
+    Returns complete article text for documents that are freely available under open-access licensing.
+    Requires an API key and uses the article number as a required parameter to identify the target document.
+  humanURL: https://developer.ieee.org/docs
+  baseURL: https://ieeexploreapi.ieee.org/api/v1/search/articles
+  tags:
+  - Open Access
+  - Full Text
+  - Scholarly Publishing
+  properties:
+  - type: Documentation
+    url: https://developer.ieee.org/docs
+  - type: DeveloperPortal
+    url: https://developer.ieee.org/
+- name: IEEE Xplore Full-Text Access API
+  description: >-
+    Full-text retrieval endpoint for chargeable IEEE articles accessible to institutional subscribers.
+    Returns complete article content for documents covered under an organization's IEEE Xplore subscription.
+    Requires both an API key and an institutional auth token. Article number is a required parameter.
+  humanURL: https://developer.ieee.org/docs
+  baseURL: https://ieeexploreapi.ieee.org/api/v1/search/articles
+  tags:
+  - Full Text
+  - Scholarly Publishing
+  - Subscription
+  properties:
+  - type: Documentation
+    url: https://developer.ieee.org/docs
+  - type: DeveloperPortal
+    url: https://developer.ieee.org/
+- aid: ieee:ieee-metadata-search-api
+  name: IEEE Xplore Metadata Search API
+  description: Query and retrieve metadata records and abstracts for IEEE documents
+  humanURL: https://developer.ieee.org/docs
+  baseURL: https://ieeexploreapi.ieee.org/api/v1/search/articles
+  tags:
+  - Metadata Search
+  properties:
+  - type: OpenAPI
+    url: openapi/ieee-metadata-search-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/ieee-agentic-access.yml
