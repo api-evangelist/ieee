@@ -23,7 +23,7 @@ description: >-
   of freely available articles, and a Full-Text Access API for institutional subscribers. API
   access requires key-based registration through the IEEE Developer Portal.
 url: https://developer.ieee.org/
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 created: '2026-06-13'
 modified: '2026-06-13'
 x-source: manual
