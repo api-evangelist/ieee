@@ -1,0 +1,1142 @@
+{
+  "item": [
+    {
+      "id": "fd9afacf-58b9-4270-9dbe-6dbb46094845",
+      "name": "Metadata Search",
+      "description": {
+        "content": "Query and retrieve metadata records and abstracts for IEEE documents",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b38565c6-f14b-44eb-b4fb-ed249dcf983f",
+          "name": "Search IEEE Xplore article metadata",
+          "request": {
+            "name": "Search IEEE Xplore article metadata",
+            "description": {
+              "content": "Query and retrieve metadata records and abstracts for more than 6 million documents in IEEE Xplore including journals, conference proceedings, standards, books, and courses. Supports free-text, Boolean, and fielded searches. Returns up to 200 records per request with JSON (default) or XML output. The apikey query parameter is required on every request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "articles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) API key issued by the IEEE Developer Portal. Required on every request."
+                },
+                {
+                  "disabled": false,
+                  "key": "querytext",
+                  "value": "<string>",
+                  "description": "Free-text search across all configured metadata fields and abstract text. Use for general keyword searches."
+                },
+                {
+                  "disabled": false,
+                  "key": "abstract",
+                  "value": "<string>",
+                  "description": "Search text within the abstract field only."
+                },
+                {
+                  "disabled": false,
+                  "key": "affiliation",
+                  "value": "<string>",
+                  "description": "Search by author institutional affiliation text."
+                },
+                {
+                  "disabled": false,
+                  "key": "article_number",
+                  "value": "<string>",
+                  "description": "IEEE unique identifier for a specific article. Use to retrieve a single known document."
+                },
+                {
+                  "disabled": false,
+                  "key": "article_title",
+                  "value": "<string>",
+                  "description": "Search within the article title field."
+                },
+                {
+                  "disabled": false,
+                  "key": "author",
+                  "value": "<string>",
+                  "description": "Search by author name."
+                },
+                {
+                  "disabled": false,
+                  "key": "booleantext",
+                  "value": "<string>",
+                  "description": "Boolean query against all configured metadata fields, abstract, and document text. Supports AND, OR, NOT operators."
+                },
+                {
+                  "disabled": false,
+                  "key": "content_type",
+                  "value": "<string>",
+                  "description": "Filter results by content type."
+                },
+                {
+                  "disabled": false,
+                  "key": "d_au",
+                  "value": "<string>",
+                  "description": "Faceted author search using Open Author Facet data field."
+                },
+                {
+                  "disabled": false,
+                  "key": "d_pubtype",
+                  "value": "<string>",
+                  "description": "Faceted content-type filter using Open Content Type Facet data field."
+                },
+                {
+                  "disabled": false,
+                  "key": "d_year",
+                  "value": "<integer>",
+                  "description": "Faceted publication year filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "doi",
+                  "value": "<string>",
+                  "description": "Search or retrieve a document by its Digital Object Identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>",
+                  "description": "Upper bound for publication date filter. Format: YYYYMMDD or YYYY."
+                },
+                {
+                  "disabled": false,
+                  "key": "index_terms",
+                  "value": "<string>",
+                  "description": "Search within author keywords, IEEE Terms, and MeSH Terms."
+                },
+                {
+                  "disabled": false,
+                  "key": "isbn",
+                  "value": "<string>",
+                  "description": "Search by International Standard Book Number."
+                },
+                {
+                  "disabled": false,
+                  "key": "issn",
+                  "value": "<string>",
+                  "description": "Search by International Standard Serial Number."
+                },
+                {
+                  "disabled": false,
+                  "key": "is_number",
+                  "value": "<string>",
+                  "description": "IEEE internal journal issue identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "max_records",
+                  "value": "25",
+                  "description": "Maximum number of records to return per request. Default is 25; maximum is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "publication_number",
+                  "value": "<string>",
+                  "description": "IEEE unique publication record number (journal or conference)."
+                },
+                {
+                  "disabled": false,
+                  "key": "publication_title",
+                  "value": "<string>",
+                  "description": "Search within the publication title (journal, conference, or book name)."
+                },
+                {
+                  "disabled": false,
+                  "key": "publication_year",
+                  "value": "<integer>",
+                  "description": "Filter results by publication year."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_field",
+                  "value": "<string>",
+                  "description": "Field to sort results by."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "asc",
+                  "description": "Sort direction."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>",
+                  "description": "Lower bound for publication date filter. Format: YYYYMMDD or YYYY."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_record",
+                  "value": "1",
+                  "description": "Sequence number of the first record to return. Used for pagination. Default is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json",
+                  "description": "Response format. Default is json."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4e9eb185-f1af-4abf-bb7d-2bffc1f15c29",
+              "name": "Successful search response containing matching article records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "YOUR_API_KEY_HERE"
+                    },
+                    {
+                      "key": "querytext",
+                      "value": "deep learning neural network"
+                    },
+                    {
+                      "key": "abstract",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "affiliation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "article_number",
+                      "value": "9147599"
+                    },
+                    {
+                      "key": "article_title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "booleantext",
+                      "value": "(machine learning) AND (robotics OR automation)"
+                    },
+                    {
+                      "key": "content_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_au",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_pubtype",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_year",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "doi",
+                      "value": "10.1109/TNET.2020.3001245"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "20241231"
+                    },
+                    {
+                      "key": "index_terms",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isbn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_records",
+                      "value": "25"
+                    },
+                    {
+                      "key": "publication_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publication_title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publication_year",
+                      "value": "2023"
+                    },
+                    {
+                      "key": "sort_field",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "20200101"
+                    },
+                    {
+                      "key": "start_record",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_records\": 1,\n  \"total_searched\": 6000000,\n  \"articles\": [\n    {\n      \"article_number\": \"9147599\",\n      \"title\": \"Deep Learning for Natural Language Processing\",\n      \"abstract\": \"This paper presents a comprehensive survey of deep learning techniques applied to NLP tasks.\",\n      \"doi\": \"10.1109/ACCESS.2020.3012345\",\n      \"authors\": {\n        \"authors\": [\n          {\n            \"full_name\": \"Smith, J.\",\n            \"author_order\": 1,\n            \"affiliation\": \"MIT\"\n          }\n        ]\n      },\n      \"publication_title\": \"IEEE Access\",\n      \"publication_year\": 2020,\n      \"content_type\": \"Journals\",\n      \"is_open_access\": true,\n      \"pdf_url\": \"https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9147599\",\n      \"html_url\": \"https://ieeexplore.ieee.org/document/9147599\",\n      \"abstract_url\": \"https://ieeexplore.ieee.org/document/9147599\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ca67566-4876-4a33-91fd-69a19202b39d",
+              "name": "Bad request. Invalid query parameters or missing required fields.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "YOUR_API_KEY_HERE"
+                    },
+                    {
+                      "key": "querytext",
+                      "value": "deep learning neural network"
+                    },
+                    {
+                      "key": "abstract",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "affiliation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "article_number",
+                      "value": "9147599"
+                    },
+                    {
+                      "key": "article_title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "booleantext",
+                      "value": "(machine learning) AND (robotics OR automation)"
+                    },
+                    {
+                      "key": "content_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_au",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_pubtype",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_year",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "doi",
+                      "value": "10.1109/TNET.2020.3001245"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "20241231"
+                    },
+                    {
+                      "key": "index_terms",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isbn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_records",
+                      "value": "25"
+                    },
+                    {
+                      "key": "publication_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publication_title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publication_year",
+                      "value": "2023"
+                    },
+                    {
+                      "key": "sort_field",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "20200101"
+                    },
+                    {
+                      "key": "start_record",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7964af9-b7f4-4564-9af2-eef2e42db073",
+              "name": "Unauthorized. Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "YOUR_API_KEY_HERE"
+                    },
+                    {
+                      "key": "querytext",
+                      "value": "deep learning neural network"
+                    },
+                    {
+                      "key": "abstract",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "affiliation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "article_number",
+                      "value": "9147599"
+                    },
+                    {
+                      "key": "article_title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "booleantext",
+                      "value": "(machine learning) AND (robotics OR automation)"
+                    },
+                    {
+                      "key": "content_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_au",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_pubtype",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_year",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "doi",
+                      "value": "10.1109/TNET.2020.3001245"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "20241231"
+                    },
+                    {
+                      "key": "index_terms",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isbn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_records",
+                      "value": "25"
+                    },
+                    {
+                      "key": "publication_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publication_title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publication_year",
+                      "value": "2023"
+                    },
+                    {
+                      "key": "sort_field",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "20200101"
+                    },
+                    {
+                      "key": "start_record",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "277fc9af-cba9-48ba-a138-e4595a2e21e3",
+              "name": "Forbidden. API key lacks permission for this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "YOUR_API_KEY_HERE"
+                    },
+                    {
+                      "key": "querytext",
+                      "value": "deep learning neural network"
+                    },
+                    {
+                      "key": "abstract",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "affiliation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "article_number",
+                      "value": "9147599"
+                    },
+                    {
+                      "key": "article_title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "booleantext",
+                      "value": "(machine learning) AND (robotics OR automation)"
+                    },
+                    {
+                      "key": "content_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_au",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_pubtype",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_year",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "doi",
+                      "value": "10.1109/TNET.2020.3001245"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "20241231"
+                    },
+                    {
+                      "key": "index_terms",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isbn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_records",
+                      "value": "25"
+                    },
+                    {
+                      "key": "publication_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publication_title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publication_year",
+                      "value": "2023"
+                    },
+                    {
+                      "key": "sort_field",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "20200101"
+                    },
+                    {
+                      "key": "start_record",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7667ff64-fa46-4858-bb1f-c45f13418407",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "YOUR_API_KEY_HERE"
+                    },
+                    {
+                      "key": "querytext",
+                      "value": "deep learning neural network"
+                    },
+                    {
+                      "key": "abstract",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "affiliation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "article_number",
+                      "value": "9147599"
+                    },
+                    {
+                      "key": "article_title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "booleantext",
+                      "value": "(machine learning) AND (robotics OR automation)"
+                    },
+                    {
+                      "key": "content_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_au",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_pubtype",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_year",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "doi",
+                      "value": "10.1109/TNET.2020.3001245"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "20241231"
+                    },
+                    {
+                      "key": "index_terms",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isbn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_records",
+                      "value": "25"
+                    },
+                    {
+                      "key": "publication_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publication_title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publication_year",
+                      "value": "2023"
+                    },
+                    {
+                      "key": "sort_field",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "20200101"
+                    },
+                    {
+                      "key": "start_record",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b63c6852-45f1-4103-895e-3cc4618df4c4",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "YOUR_API_KEY_HERE"
+                    },
+                    {
+                      "key": "querytext",
+                      "value": "deep learning neural network"
+                    },
+                    {
+                      "key": "abstract",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "affiliation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "article_number",
+                      "value": "9147599"
+                    },
+                    {
+                      "key": "article_title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "booleantext",
+                      "value": "(machine learning) AND (robotics OR automation)"
+                    },
+                    {
+                      "key": "content_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_au",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_pubtype",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "d_year",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "doi",
+                      "value": "10.1109/TNET.2020.3001245"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "20241231"
+                    },
+                    {
+                      "key": "index_terms",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isbn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_records",
+                      "value": "25"
+                    },
+                    {
+                      "key": "publication_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publication_title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publication_year",
+                      "value": "2023"
+                    },
+                    {
+                      "key": "sort_field",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "20200101"
+                    },
+                    {
+                      "key": "start_record",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ieeexploreapi.ieee.org/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ddc35808-c271-46bc-a66c-cd345223bb4e",
+    "name": "IEEE Xplore Metadata Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The IEEE Xplore API suite provides programmatic access to over 6 million documents spanning engineering, computer science, electronics, and technology. The Metadata Search API supports free-text and fielded searches with Boolean operators, returning JSON or XML. The DOI API resolves up to 25 DOIs per request. The Open Access API retrieves full text for openly licensed IEEE articles. The Full-Text Access API serves institutional subscribers. All endpoints require an API key registered at the IEEE Developer Portal.\n\nContact Support:\n Name: IEEE Xplore API Support\n Email: onlinesupport@ieee.org",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "IEEE Xplore Metadata Search API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search IEEE Xplore article metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ieeexploreapi.ieee.org/api/v1/search/articles",
+            "params": [
+              {
+                "name": "apikey",
+                "value": "YOUR_API_KEY_HERE",
+                "type": "query",
+                "description": "API key issued by the IEEE Developer Portal. Required on every request."
+              },
+              {
+                "name": "querytext",
+                "value": "deep learning neural network",
+                "type": "query",
+                "description": "Free-text search across all configured metadata fields and abstract text. Use for general keyword searches."
+              },
+              {
+                "name": "abstract",
+                "value": "",
+                "type": "query",
+                "description": "Search text within the abstract field only."
+              },
+              {
+                "name": "affiliation",
+                "value": "",
+                "type": "query",
+                "description": "Search by author institutional affiliation text."
+              },
+              {
+                "name": "article_number",
+                "value": "9147599",
+                "type": "query",
+                "description": "IEEE unique identifier for a specific article. Use to retrieve a single known document."
+              },
+              {
+                "name": "article_title",
+                "value": "",
+                "type": "query",
+                "description": "Search within the article title field."
+              },
+              {
+                "name": "author",
+                "value": "",
+                "type": "query",
+                "description": "Search by author name."
+              },
+              {
+                "name": "booleantext",
+                "value": "(machine learning) AND (robotics OR automation)",
+                "type": "query",
+                "description": "Boolean query against all configured metadata fields, abstract, and document text. Supports AND, OR, NOT operators."
+              },
+              {
+                "name": "content_type",
+                "value": "",
+                "type": "query",
+                "description": "Filter results by content type."
+              },
+              {
+                "name": "d_au",
+                "value": "",
+                "type": "query",
+                "description": "Faceted author search using Open Author Facet data field."
+              },
+              {
+                "name": "d_pubtype",
+                "value": "",
+                "type": "query",
+                "description": "Faceted content-type filter using Open Content Type Facet data field."
+              },
+              {
+                "name": "d_year",
+                "value": "",
+                "type": "query",
+                "description": "Faceted publication year filter."
+              },
+              {
+                "name": "doi",
+                "value": "10.1109/TNET.2020.3001245",
+                "type": "query",
+                "description": "Search or retrieve a document by its Digital Object Identifier."
+              },
+              {
+                "name": "end_date",
+                "value": "20241231",
+                "type": "query",
+                "description": "Upper bound for publication date filter. Format: YYYYMMDD or YYYY."
+              },
+              {
+                "name": "index_terms",
+                "value": "",
+                "type": "query",
+                "description": "Search within author keywords, IEEE Terms, and MeSH Terms."
+              },
+              {
+                "name": "isbn",
+                "value": "",
+                "type": "query",
+                "description": "Search by International Standard Book Number."
+              },
+              {
+                "name": "issn",
+                "value": "",
+                "type": "query",
+                "description": "Search by International Standard Serial Number."
+              },
+              {
+                "name": "is_number",
+                "value": "",
+                "type": "query",
+                "description": "IEEE internal journal issue identifier."
+              },
+              {
+                "name": "max_records",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return per request. Default is 25; maximum is 200."
+              },
+              {
+                "name": "publication_number",
+                "value": "",
+                "type": "query",
+                "description": "IEEE unique publication record number (journal or conference)."
+              },
+              {
+                "name": "publication_title",
+                "value": "",
+                "type": "query",
+                "description": "Search within the publication title (journal, conference, or book name)."
+              },
+              {
+                "name": "publication_year",
+                "value": "",
+                "type": "query",
+                "description": "Filter results by publication year."
+              },
+              {
+                "name": "sort_field",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by."
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction."
+              },
+              {
+                "name": "start_date",
+                "value": "20200101",
+                "type": "query",
+                "description": "Lower bound for publication date filter. Format: YYYYMMDD or YYYY."
+              },
+              {
+                "name": "start_record",
+                "value": "",
+                "type": "query",
+                "description": "Sequence number of the first record to return. Used for pagination. Default is 1."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format. Default is json."
+              }
+            ]
+          },
+          "docs": "Query and retrieve metadata records and abstracts for more than 6 million documents in IEEE Xplore including journals, conference proceedings, standards, books, and courses. Supports free-text, Boolean, and fielded searches. Returns up to 200 records per request with JSON (default) or XML output. The apikey query parameter is required on every request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
