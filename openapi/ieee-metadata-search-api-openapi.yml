@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: IEEE Xplore Metadata Search API
-  description: The IEEE Xplore API suite provides programmatic access to over 6 million documents spanning engineering, computer science, electronics, and technology. The Metadata Search API supports free-text and fielded searches with Boolean operators, returning JSON or XML. The DOI API resolves up to 25 DOIs per request. The Open Access API retrieves full text for openly licensed IEEE articles. The Full-Text Access API serves institutional subscribers. All endpoints require an API key registered at the IEEE Developer Portal.
+  description: The IEEE Xplore API suite provides programmatic access to over 6 million documents spanning engineering, computer science, electronics, and technology.
   version: 1.0.0
   termsOfService: https://developer.ieee.org/terms_of_use
   contact:
@@ -285,6 +285,33 @@ components:
         type: string
       example: YOUR_API_KEY_HERE
   schemas:
+    SearchResponse:
+      type: object
+      description: Response envelope for article search results.
+      properties:
+        total_records:
+          type: integer
+          description: Total number of matching documents found.
+          example: 1482
+        total_searched:
+          type: integer
+          description: Total number of documents searched in the index.
+          example: 6000000
+        articles:
+          type: array
+          description: Array of article metadata records.
+          items:
+            $ref: '#/components/schemas/Article'
+    ErrorResponse:
+      type: object
+      description: Error response returned for failed API requests.
+      properties:
+        error:
+          type: string
+          description: Error type or code.
+        message:
+          type: string
+          description: Human-readable description of the error.
     Article:
       type: object
       description: Metadata record for a single IEEE document.
@@ -426,33 +453,6 @@ components:
         volume:
           type: string
           description: Volume detail for journal and conference publications.
-    SearchResponse:
-      type: object
-      description: Response envelope for article search results.
-      properties:
-        total_records:
-          type: integer
-          description: Total number of matching documents found.
-          example: 1482
-        total_searched:
-          type: integer
-          description: Total number of documents searched in the index.
-          example: 6000000
-        articles:
-          type: array
-          description: Array of article metadata records.
-          items:
-            $ref: '#/components/schemas/Article'
-    ErrorResponse:
-      type: object
-      description: Error response returned for failed API requests.
-      properties:
-        error:
-          type: string
-          description: Error type or code.
-        message:
-          type: string
-          description: Human-readable description of the error.
     Author:
       type: object
       description: Author metadata for a document contributor.
