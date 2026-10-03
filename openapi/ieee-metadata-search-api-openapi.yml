@@ -276,6 +276,33 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      description: Error response returned for failed API requests.
+      properties:
+        error:
+          type: string
+          description: Error type or code.
+        message:
+          type: string
+          description: Human-readable description of the error.
+    SearchResponse:
+      type: object
+      description: Response envelope for article search results.
+      properties:
+        total_records:
+          type: integer
+          description: Total number of matching documents found.
+          example: 1482
+        total_searched:
+          type: integer
+          description: Total number of documents searched in the index.
+          example: 6000000
+        articles:
+          type: array
+          description: Array of article metadata records.
+          items:
+            $ref: '#/components/schemas/Article'
     Author:
       type: object
       description: Author metadata for a document contributor.
@@ -296,16 +323,6 @@ components:
           type: string
           format: uri
           description: IEEE Xplore URL providing additional author details.
-    ErrorResponse:
-      type: object
-      description: Error response returned for failed API requests.
-      properties:
-        error:
-          type: string
-          description: Error type or code.
-        message:
-          type: string
-          description: Human-readable description of the error.
     Article:
       type: object
       description: Metadata record for a single IEEE document.
@@ -447,23 +464,6 @@ components:
         volume:
           type: string
           description: Volume detail for journal and conference publications.
-    SearchResponse:
-      type: object
-      description: Response envelope for article search results.
-      properties:
-        total_records:
-          type: integer
-          description: Total number of matching documents found.
-          example: 1482
-        total_searched:
-          type: integer
-          description: Total number of documents searched in the index.
-          example: 6000000
-        articles:
-          type: array
-          description: Array of article metadata records.
-          items:
-            $ref: '#/components/schemas/Article'
   parameters:
     ApiKey:
       name: apikey
