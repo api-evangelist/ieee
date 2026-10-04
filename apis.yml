@@ -45,7 +45,6 @@ x-category: Science & Math
 x-tier: 2
 x-tier-reason: IEEE Xplore is a major scholarly publisher with a public API requiring key registration; institutional subscription needed for full-text but metadata is broadly accessible.
 tags:
-  - Science And Math
   - Scholarly Publishing
   - Engineering
   - Computer Science
@@ -54,6 +53,7 @@ tags:
   - Academic
   - Technology
   - Publishing
+  - Science
 apis:
 - name: IEEE Xplore Metadata Search API
   description: >-
@@ -234,3 +234,5 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-tags-removed:
+- Science And Math
