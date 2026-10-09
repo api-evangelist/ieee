@@ -1,3 +1,8 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (dated 2026-06-13 by the file itself), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
+generated: '2026-06-13'
 name: IEEE Xplore API Plans
 description: |
   IEEE Xplore API access is available through the IEEE Developer Portal under an
@@ -72,3 +77,23 @@ links:
   gettingStarted: https://developer.ieee.org/getting_started
   subscriptionOptions: https://innovate.ieee.org/compare-features-chart/
   support: mailto:onlinesupport@ieee.org
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - negotiated
+  units: []
+  plans:
+  - name: Metadata API (Free with Registration)
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: Full-Text Access (Institutional Subscription Required)
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
